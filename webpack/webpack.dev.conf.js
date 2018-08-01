@@ -2,7 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 // const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const baseSetting = require('./base.js')
+// const baseSetting = require('./base.js')
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
@@ -55,7 +55,7 @@ module.exports = {
     }
   },
   devServer: {
-    contentBase: './dist',
+    contentBase: './',
     // publicPath: '/dist/',
     compress: true,
     port: 1717
