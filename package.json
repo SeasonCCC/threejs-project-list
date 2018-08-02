@@ -6,11 +6,13 @@
   "scripts": {
     "dev": "webpack --mode development --progress --hide-modules --config webpack/webpack.dev.conf.js",
     "build": "webpack --watch --mode production --progress --hide-modules --config webpack/webpack.build.conf.js",
-    "start": "webpack-dev-server --host 172.28.30.108 --open --hot --mode development --hide-modules --config webpack/webpack.dev.conf.js"
+    "start": "webpack-dev-server --host 172.28.30.108 --open --hot --mode development --hide-modules --config webpack/webpack.dev.conf.js",
+    "node:copy": "nodemon -x babel-node webpack/copyHtml.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-runtime": "^6.23.0",
