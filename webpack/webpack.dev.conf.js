@@ -2,17 +2,20 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 // const VueLoaderPlugin = require('vue-loader/lib/plugin')
-// const baseSetting = require('./base.js')
+const baseSetting = require('./base.js')
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
 module.exports = {
-  entry: './src/ts/main.ts',
+  entry: {
+    ['../dist/' + baseSetting.dirname[0] + '/index']: './src/'+baseSetting.dirname[0]+'/ts/main.ts',
+    ['../dist/' + baseSetting.dirname[1] + '/index']: './src/'+baseSetting.dirname[1]+'/ts/main.ts',
+  },
   output: {
     path: resolve('dist'),
-    filename: 'bundle.js',
+    filename: '[name].js',
     publicPath: '/dist/'
     // chunkFilename: '[name].js'
   },
