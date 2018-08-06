@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "webpack --mode development --progress --hide-modules --config webpack/webpack.dev.conf.js",
     "build": "webpack --watch --mode production --progress --hide-modules --config webpack/webpack.build.conf.js",
-    "start": "webpack-dev-server --host 172.28.30.108 --open --hot --mode development --hide-modules --config webpack/webpack.dev.conf.js",
-    "node:copy": "nodemon -x babel-node webpack/copyHtml.js"
+    "server": "webpack-dev-server --host 172.28.30.108 --open --hot --mode development --hide-modules --config webpack/webpack.dev.conf.js",
+    "node:copy": "babel-node webpack/copyHtml.js",
+    "start": "yarn run node:copy && yarn run server"
   },
   "author": "",
   "license": "ISC",
