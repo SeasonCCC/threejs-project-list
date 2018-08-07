@@ -23,6 +23,16 @@
   version "0.7.0"
   resolved "http://registry.npm.taobao.org/@sindresorhus/is/download/@sindresorhus/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
 
+"@types/three@^0.92.15":
+  version "0.92.15"
+  resolved "http://registry.npm.taobao.org/@types/three/download/@types/three-0.92.15.tgz#88c1de7d74f96c73984e8a529c1a3ee2a02029e0"
+  dependencies:
+    "@types/webvr-api" "*"
+
+"@types/webvr-api@*":
+  version "0.0.34"
+  resolved "http://registry.npm.taobao.org/@types/webvr-api/download/@types/webvr-api-0.0.34.tgz#8fa49028de925c7b8bce3d559d3374ce2c89ee28"
+
 "@webassemblyjs/ast@1.5.13":
   version "1.5.13"
   resolved "http://registry.npm.taobao.org/@webassemblyjs/ast/download/@webassemblyjs/ast-1.5.13.tgz#81155a570bd5803a30ec31436bc2c9c0ede38f25"
@@ -6391,6 +6401,10 @@ thread-loader@^1.2.0:
     async "^2.3.0"
     loader-runner "^2.3.0"
     loader-utils "^1.1.0"
+
+three@^0.95.0:
+  version "0.95.0"
+  resolved "http://registry.npm.taobao.org/three/download/three-0.95.0.tgz#b60ea076ba17df9faba9e855b86ab3f541289abf"
 
 through2@^2.0.0:
   version "2.0.3"

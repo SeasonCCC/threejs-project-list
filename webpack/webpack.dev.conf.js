@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+// const HtmlWebpackPlugin = require('html-webpack-plugin')
 // const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const baseSetting = require('./base.js')
 
@@ -10,8 +10,8 @@ function resolve(dir) {
 
 module.exports = {
   entry: {
-    ['../dist/' + baseSetting.dirname[0] + '/index']: './src/'+baseSetting.dirname[0]+'/ts/main.ts',
-    ['../dist/' + baseSetting.dirname[1] + '/index']: './src/'+baseSetting.dirname[1]+'/ts/main.ts',
+    ['../dist/' + baseSetting.dirname[0] + '/index']: './src/' + baseSetting.dirname[0] + '/ts/main.ts',
+    ['../dist/' + baseSetting.dirname[1] + '/index']: './src/' + baseSetting.dirname[1] + '/ts/main.ts'
   },
   output: {
     path: resolve('dist'),
@@ -42,12 +42,13 @@ module.exports = {
       }
     ]
   },
-  // plugins: [new HtmlWebpackPlugin({
-  //     basePath: resolve('dist'),
-  //     filename: 'index.html',
-  //     template: 'src/html/index.html',
-  //     inject: false
-  //   })],
+  plugins: [// new HtmlWebpackPlugin({
+    //   basePath: resolve('dist'),
+    //   filename: 'index.html',
+    //   template: 'src/html/index.html',
+    //   inject: false
+    // }),
+    new webpack.HotModuleReplacementPlugin()],
   // externals: baseSetting.externals,
   resolve: {
     extensions: [
@@ -58,8 +59,11 @@ module.exports = {
     }
   },
   devServer: {
+    host: '0.0.0.0',
+    hot: true,
+    open: true,
     contentBase: './',
-    // publicPath: '/dist/',
+    publicPath: '/dist/',
     compress: true,
     port: 1717
   }
