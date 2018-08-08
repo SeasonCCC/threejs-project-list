@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-// const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 // const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const baseSetting = require('./base.js')
 
@@ -42,12 +42,12 @@ module.exports = {
       }
     ]
   },
-  plugins: [// new HtmlWebpackPlugin({
-    //   basePath: resolve('dist'),
-    //   filename: 'index.html',
-    //   template: 'src/html/index.html',
-    //   inject: false
-    // }),
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'sphere/index.html',
+      template: resolve('src/sphere/html/index.html'),
+      inject: false
+    }),
     new webpack.HotModuleReplacementPlugin()],
   // externals: baseSetting.externals,
   resolve: {
@@ -63,7 +63,7 @@ module.exports = {
     hot: true,
     open: true,
     contentBase: './',
-    publicPath: '/dist/',
+    // publicPath: '/dist/',
     compress: true,
     port: 1717
   }
