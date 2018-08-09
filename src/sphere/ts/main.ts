@@ -26,7 +26,15 @@ import * as style from '../scss/reset.scss'
 // const game = new Game()
 // game.init()
 
+
 const canvas = document.createElement('canvas')
 canvas.className = style.container;
 canvas.id = 'Canvas';
+
+// cosnt img = new Image();
+// img.src = images;
+//
+// const ctx = canvas.getContext("2d");
+// ctx.drawImage(img, 10, 10);
+
 document.body.appendChild(canvas)
