@@ -1,5 +1,5 @@
 module.exports = {
-  dirname: ['panorima', 'sphere'],
+  dirname: ['sphere'],
   // publicPath: 'http://www.foshannews.net/images/2018zt/wx/wqh5/dist/',
   externals: {
     // three: 'THREE',

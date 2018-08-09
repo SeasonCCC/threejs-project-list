@@ -8,11 +8,21 @@ function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
+let entryObj = {}
+baseSetting.dirname.forEach(function(dirname, i) {
+  entryObj['../dist/' + dirname + '/index'] = './src/' + dirname + '/ts/main.ts'
+})
+
+let htmlPlugins = baseSetting.dirname.map(function(dirname) {
+  return new HtmlWebpackPlugin({
+    filename: '' + dirname + '/index.html',
+    template: resolve('src/' + dirname + '/html/index.html'),
+    inject: false
+  })
+})
+
 module.exports = {
-  entry: {
-    ['../dist/' + baseSetting.dirname[0] + '/index']: './src/' + baseSetting.dirname[0] + '/ts/main.ts',
-    ['../dist/' + baseSetting.dirname[1] + '/index']: './src/' + baseSetting.dirname[1] + '/ts/main.ts'
-  },
+  entry: entryObj,
   output: {
     path: resolve('dist'),
     filename: '[name].js',
@@ -23,7 +33,17 @@ module.exports = {
     rules: [
       {
         test: /\.scss$/,
-        use: ['thread-loader', 'css-loader', 'sass-loader']
+        use: [
+          'style-loader', {
+            loader: 'typings-for-css-modules-loader',
+            options: {
+              modules: true,
+              namedExport: true,
+              camelCase: true,
+              sass: true
+            }
+          }
+        ]
       }, {
         test: /\.tsx?$/,
         exclude: /node_modules/,
@@ -43,12 +63,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      filename: 'sphere/index.html',
-      template: resolve('src/sphere/html/index.html'),
-      inject: false
-    }),
-    new webpack.HotModuleReplacementPlugin()],
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.WatchIgnorePlugin([/css.d.ts$/])
+  ].concat(htmlPlugins),
   // externals: baseSetting.externals,
   resolve: {
     extensions: [
@@ -60,10 +77,10 @@ module.exports = {
   },
   devServer: {
     host: '0.0.0.0',
-    hot: true,
+    // hot: true,
     open: true,
     contentBase: './',
-    // publicPath: '/dist/',
+    publicPath: '/dist/',
     compress: true,
     port: 1717
   }
