@@ -53,10 +53,10 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            // options: {
-            //   publicPath: baseSetting.publicPath + '/assets/',
-            //   outputPath: './assets'
-            // }
+            options: {
+              // publicPath: baseSetting.publicPath + '/assets/',
+              // outputPath: './assets'
+            }
           }
         ]
       }

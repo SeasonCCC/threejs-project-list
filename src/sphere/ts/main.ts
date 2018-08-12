@@ -1,4 +1,5 @@
 import * as style from '../scss/reset.scss'
+import back from '../assets/back-btn.png'
 // import * as THREE from 'three';
 //
 // class Student {
@@ -26,7 +27,7 @@ import * as style from '../scss/reset.scss'
 // const game = new Game()
 // game.init()
 
-
+console.log(back)
 const canvas = document.createElement('canvas')
 canvas.className = style.container;
 canvas.id = 'Canvas';
