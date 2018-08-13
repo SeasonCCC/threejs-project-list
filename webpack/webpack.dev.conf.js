@@ -54,8 +54,15 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
+              // name(file) {
+              //   console.log(file)
+              //   let fileDir = file.dirname.toString()
+              //   let dir = fileDir.match(/src\/(\S*)\/assets/)[1]
+              //   return '[hash].[ext]'
+              // }
               // publicPath: baseSetting.publicPath + '/assets/',
-              // outputPath: './assets'
+              name: 'regExp=src\/(.+?)\/&name=[1]/assets/[hash].[ext]',
+              // outputPath: '../'
             }
           }
         ]
