@@ -1,5 +1,5 @@
 import * as style from '../scss/reset.scss'
-import back from '../assets/back-btn.png'
+import back from '../assets/back.png'
 // import * as THREE from 'three';
 //
 // class Student {

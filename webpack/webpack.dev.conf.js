@@ -54,14 +54,15 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
+              regExp: /\/([a-z0-9]+)\/[a-z0-9]+\.png$/,
+              name: '[1]-[name].[ext]'
               // name(file) {
-              //   console.log(file)
-              //   let fileDir = file.dirname.toString()
-              //   let dir = fileDir.match(/src\/(\S*)\/assets/)[1]
-              //   return '[hash].[ext]'
+              //   // console.log(file)
+              //   // let fileDir = file.dirname.toString()
+              //   // let dir = fileDir.match(/src\/(\S*)\/assets/)[1]
+              //   return dir + '[hash].[ext]'
               // }
               // publicPath: baseSetting.publicPath + '/assets/',
-              name: 'regExp=src\/(.+?)\/&name=[1]/assets/[hash].[ext]',
               // outputPath: '../'
             }
           }
@@ -76,7 +77,7 @@ module.exports = {
   // externals: baseSetting.externals,
   resolve: {
     extensions: [
-      '.js', '.vue', '.json'
+      '.js', '.vue', '.json', '.ts'
     ],
     alias: {
       '@': resolve('src')
