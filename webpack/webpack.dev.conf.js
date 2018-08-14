@@ -57,9 +57,9 @@ module.exports = {
               regExp: /\/([a-z0-9]+)\/[a-z0-9]+\.png$/,
               name: '[1]-[name].[ext]'
               // name(file) {
-              //   // console.log(file)
-              //   // let fileDir = file.dirname.toString()
-              //   // let dir = fileDir.match(/src\/(\S*)\/assets/)[1]
+              //    console.log(file)
+              //    let fileDir = file.dirname.toString()
+              //    let dir = fileDir.match(/src\/(\S*)\/assets/)[1]
               //   return dir + '[hash].[ext]'
               // }
               // publicPath: baseSetting.publicPath + '/assets/',
