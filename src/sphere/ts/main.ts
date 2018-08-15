@@ -1,5 +1,5 @@
 import * as style from '../scss/reset.scss'
-import back from '../assets/back.png'
+import * as back from '../assets/back.png'
 // import * as THREE from 'three';
 //
 // class Student {
@@ -32,10 +32,10 @@ const canvas = document.createElement('canvas')
 canvas.className = style.container;
 canvas.id = 'Canvas';
 
-// cosnt img = new Image();
-// img.src = images;
-//
-// const ctx = canvas.getContext("2d");
-// ctx.drawImage(img, 10, 10);
+const img = new Image();
+img.src = back;
+
+const ctx = canvas.getContext("2d");
+ctx.drawImage(img, 10, 10);
 
 document.body.appendChild(canvas)

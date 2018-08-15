@@ -54,16 +54,12 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              regExp: /\/([a-z0-9]+)\/[a-z0-9]+\.png$/,
-              name: '[1]-[name].[ext]'
-              // name(file) {
-              //    console.log(file)
-              //    let fileDir = file.dirname.toString()
-              //    let dir = fileDir.match(/src\/(\S*)\/assets/)[1]
-              //   return dir + '[hash].[ext]'
-              // }
-              // publicPath: baseSetting.publicPath + '/assets/',
-              // outputPath: '../'
+              name(file) {
+                let reg = /src\\(\S*)\\assets/
+                let dir = reg.exec(file)[1]
+                return dir + '/assets/[hash].[ext]'
+              },
+              // publicPath: '../'
             }
           }
         ]
