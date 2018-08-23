@@ -27,7 +27,6 @@ import * as back from '../assets/back.png'
 // const game = new Game()
 // game.init()
 
-console.log(back)
 const canvas = document.createElement('canvas')
 canvas.className = style.container;
 canvas.id = 'Canvas';
