@@ -27,14 +27,22 @@ import * as back from '../assets/back.png'
 // const game = new Game()
 // game.init()
 
+<<<<<<< HEAD
 const canvas = document.createElement('canvas')
 canvas.className = style.container;
 canvas.id = 'Canvas';
+=======
+// console.log('../' + back)
+>>>>>>> 562a6343b9e28a68b2cd3d49df917e173c8646e2
 
 const img = new Image();
-img.src = back;
+img.onload = function() {
+  const canvas = document.createElement('canvas')
+  canvas.className = style.container;
+  const ctx = canvas.getContext("2d");
+  ctx.drawImage(img, 100, 100);
 
-const ctx = canvas.getContext("2d");
-ctx.drawImage(img, 10, 10);
-
-document.body.appendChild(canvas)
+  document.body.appendChild(canvas)
+  // document.body.appendChild(img)
+}
+img.src = '../' + back;
