@@ -1,42 +1,22 @@
 import * as style from '../scss/reset.scss'
 import * as back from '../assets/back.png'
-import * as THREE from 'three';
+import * as THREE from 'three'
+import Game from './game'
 
-class Student {
-  fullName: string;
-  constructor(public firstName, public middleInitial, public lastName) {
-    this.fullName = firstName + " " + middleInitial + " " + lastName;
-    console.log(THREE)
+const canvas = document.createElement('canvas')
+canvas.id = 'Canvas'
 
-  }
-}
+let game = new Game({ el: '#Canvas' })
+game.greet()
 
-interface Person {
-  firstName: string;
-  lastName: string;
-}
+document.body.appendChild(canvas)
 
-function greeter(person: Person) {
-  return "Hello, " + person.firstName + " " + person.lastName;
-}
-
-let user = new Student("Jane", "M.", "User");
-
-document.body.innerHTML = greeter(user);
-
-// const game = new Game()
-// game.init()
-
-// console.log('../' + back)
-
-// const img = new Image();
+// const img = new Image()
 // img.onload = function() {
-  // const canvas = document.createElement('canvas')
-  // canvas.className = style.container;
-  // const ctx = canvas.getContext("2d");
-  // ctx.drawImage(img, 100, 100);
-
-  // document.body.appendChild(canvas)
-  // document.body.appendChild(img)
+//   canvas.className = style.container
+//   const ctx = canvas.getContext("2d")
+//   ctx.drawImage(img, 100, 100)
+//
+//   // document.body.appendChild(img)
 // }
-// img.src = '../' + back;
+// img.src = '../' + back

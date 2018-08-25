@@ -26,7 +26,7 @@ module.exports = {
   output: {
     path: resolve('build'),
     filename: '[name].js',
-    // publicPath: '/build/'
+    // publicPath: '/dist/'
     // chunkFilename: '[name].js'
   },
   module: {
@@ -53,20 +53,27 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            // options: {
-            //   publicPath: baseSetting.publicPath + '/assets/',
-            //   outputPath: './assets'
-            // }
+            options: {
+              name(file) {
+                let reg = /src\\(\S*)\\assets/
+                let dir = reg.exec(file)[1]
+                return dir + '/assets/[hash].[ext]'
+              },
+              // publicPath: '../'
+            }
           }
         ]
       }
     ]
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()].concat(htmlPlugins),
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.WatchIgnorePlugin([/css.d.ts$/])
+  ].concat(htmlPlugins),
   // externals: baseSetting.externals,
   resolve: {
     extensions: [
-      '.js', '.vue', '.json'
+      '.js', '.vue', '.json', '.ts'
     ],
     alias: {
       '@': resolve('src')
