@@ -1,5 +1,5 @@
 module.exports = {
-  dirname: ['sphere'],
+  dirname: ["sphere"],
   // publicPath: 'http://www.foshannews.net/images/2018zt/wx/wqh5/dist/',
   externals: {
     // three: 'THREE',
@@ -9,4 +9,4 @@ module.exports = {
     // qs: 'Qs',
     // initNECaptcha: 'initNECaptcha'
   }
-}
+};

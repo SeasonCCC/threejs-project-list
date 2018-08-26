@@ -1,14 +1,14 @@
 interface Options {
-  el: string
+  el: string;
 }
 
 export default class Game implements Options {
-  el: string
+  el: string;
   constructor(options: any) {
     // this.options = options;
-    this.el = options.el
+    this.el = options.el;
   }
   greet() {
-    console.log(this.el)
+    console.log(this.el);
   }
 }
