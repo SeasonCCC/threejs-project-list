@@ -5,6 +5,7 @@ import path from "path";
 const readFiles = new Promise(resolve => {
   const dir = path.join(__dirname, "../src");
   fs.readdir(dir, (err, files) => {
+    
     resolve(files);
     // resolve(files.filter((v) => exts.includes(path.parse(v).ext)))
   });
