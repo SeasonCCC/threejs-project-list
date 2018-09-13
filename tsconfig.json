@@ -5,9 +5,5 @@
     "module": "commonjs",
     "removeComments": true,
     "target": "es2017"
-  },
-  "extend": [
-    "tslint:recommended",
-    "tslint-config-prettier"
-  ],
+  }
 }

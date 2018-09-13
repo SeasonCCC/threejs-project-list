@@ -1,16 +1,16 @@
-import * as style from "../scss/reset.scss";
-import * as back from "../assets/back.png";
-import * as THREE from "three";
-import Game from "./game";
+import * as THREE from 'three'
+import * as back from '../assets/back.png'
+import * as style from '../scss/reset.scss'
+import Game from './game'
 
-const canvas = document.createElement("canvas");
-canvas.id = "Canvas";
+const canvas = document.createElement('canvas')
+canvas.id = 'Canvas'
 
-let game = new Game({ el: "#Canvas" });
+const game = new Game({ el: '#Canvas' })
 
-game.greet();
+game.greet()
 
-document.body.appendChild(canvas);
+document.body.appendChild(canvas)
 
 // const img = new Image()
 // img.onload = function() {
