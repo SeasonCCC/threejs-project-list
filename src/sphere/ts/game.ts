@@ -1,3 +1,4 @@
+import { OrbitControls } from '@avatsaev/three-orbitcontrols-ts'
 import * as THREE from 'three'
 import sphere from './sphere'
 
@@ -7,6 +8,8 @@ interface IOptions {
   size: any
   scene: any
   renderer: any
+  controls: any
+  light: any
 }
 
 export default class Game implements IOptions {
@@ -15,6 +18,8 @@ export default class Game implements IOptions {
   public size: any
   public scene: any
   public renderer: any
+  public controls: any
+  public light: any
   constructor () {
     this.size = {
       height: window.innerHeight,
@@ -24,7 +29,7 @@ export default class Game implements IOptions {
     this.cameraData = {
       adjustData: 0,
       adjustPer: 0.1,
-      cameraLookAt: new THREE.Vector3(0, 0, 0),
+      cameraLookAt: new THREE.Vector3(0, -4, 0),
       cameraPos: [10, 10, 10]
     }
 
@@ -37,10 +42,24 @@ export default class Game implements IOptions {
     this.setRender()
     this.addLight()
     this.addAxes()
-
-    sphere.renderSphere.call(this)
+    this.addControls()
+    this.animate()
+    // sphere.renderSphere.call(this)
 
     this.renderer.render(this.scene, this.camera)
+  }
+
+  private animate () {
+    this.controls.update()
+    this.light.position.set(
+      this.controls.updateLastPosition.x,
+      this.controls.updateLastPosition.y,
+      this.controls.updateLastPosition.z
+    )
+    this.renderer.render(this.scene, this.camera)
+    requestAnimationFrame(() => {
+      this.animate()
+    })
   }
 
   private setCamera () {
@@ -64,13 +83,20 @@ export default class Game implements IOptions {
   }
 
   private addLight () {
-    const light: any = new THREE.SpotLight(0xffffff)
-    light.position.set(20, 20, 20)
-    this.scene.add(light)
+    this.light = new THREE.HemisphereLight(0x3b59d5, 0x080820, 1)
+    this.light.position.set(10, 10, 10)
+    this.scene.add(this.light)
   }
 
   private addAxes () {
     const axes = new THREE.AxesHelper(150)
     this.scene.add(axes)
+  }
+
+  private addControls () {
+    this.controls = new OrbitControls(this.camera, this.renderer.domElement)
+    this.controls.target = new THREE.Vector3(0, -4, 0)
+    this.controls.minAzimuthAngle = 0
+    this.controls.maxAzimuthAngle = 0
   }
 }

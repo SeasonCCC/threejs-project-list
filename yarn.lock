@@ -2,6 +2,12 @@
 # yarn lockfile v1
 
 
+"@avatsaev/three-orbitcontrols-ts@^0.1.5":
+  version "0.1.5"
+  resolved "http://registry.npm.taobao.org/@avatsaev/three-orbitcontrols-ts/download/@avatsaev/three-orbitcontrols-ts-0.1.5.tgz#7987c7d34f2cfb7550cf0893368d24747a5487a8"
+  dependencies:
+    three "^0.84"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "http://registry.npm.taobao.org/@mrmlnc/readdir-enhanced/download/@mrmlnc/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -6451,6 +6457,10 @@ thread-loader@^1.2.0:
     async "^2.3.0"
     loader-runner "^2.3.0"
     loader-utils "^1.1.0"
+
+three@^0.84:
+  version "0.84.0"
+  resolved "http://registry.npm.taobao.org/three/download/three-0.84.0.tgz#95be85a55a0fa002aa625ed559130957dcffd918"
 
 three@^0.95.0:
   version "0.95.0"
