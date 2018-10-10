@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@avatsaev/three-orbitcontrols-ts": "^0.1.5",
-    "@types/three": "^0.92.15",
+    "@types/three": "^0.92.24",
     "babel-runtime": "^6.26.0",
     "three": "^0.95.0"
   }
