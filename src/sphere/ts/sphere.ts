@@ -6,7 +6,7 @@ const sphere: any = {
       new THREE.SphereGeometry(8, 32, 32),
       new THREE.MeshLambertMaterial({ color: '#3B59D5' })
     )
-    sphereMesh.position.set(0, -4, 0)
+    sphereMesh.position.set(0, 0, 0)
     // sphereMesh.castShadow = sphereMesh.receiveShadow = true
     this.scene.add(sphereMesh)
   }

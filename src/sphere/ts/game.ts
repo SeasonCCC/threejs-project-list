@@ -1,5 +1,6 @@
 import { OrbitControls } from '@avatsaev/three-orbitcontrols-ts'
 import * as THREE from 'three'
+import image from './image'
 import sphere from './sphere'
 
 interface IOptions {
@@ -25,12 +26,12 @@ export default class Game implements IOptions {
       height: window.innerHeight,
       width: window.innerWidth
     }
-
+    // console.log(this.size)
     this.cameraData = {
-      adjustData: 0,
-      adjustPer: 0.1,
-      cameraLookAt: new THREE.Vector3(0, -4, 0),
-      cameraPos: [10, 10, 10]
+      // adjustData: 0,
+      // adjustPer: 0.1,
+      cameraLookAt: new THREE.Vector3(0, 0, 0),
+      cameraPos: [0, 10, 16]
     }
 
     this.init()
@@ -44,18 +45,21 @@ export default class Game implements IOptions {
     this.addAxes()
     this.addControls()
     this.animate()
-    // sphere.renderSphere.call(this)
-
+    sphere.renderSphere.call(this)
+    image.renderImage.call(this)
     this.renderer.render(this.scene, this.camera)
   }
 
   private animate () {
     this.controls.update()
-    this.light.position.set(
-      this.controls.updateLastPosition.x,
-      this.controls.updateLastPosition.y,
-      this.controls.updateLastPosition.z
-    )
+    // console.log(this.controls.rotateDelta)
+    // console.log(this.camera.position, this.controls.target)
+    // this.light.position.set(
+    //   this.controls.updateLastPosition.x,
+    //   this.controls.updateLastPosition.y,
+    //   this.controls.updateLastPosition.z
+    // )
+    // this.camera.position.set(...this.cameraData.cameraPos)
     this.renderer.render(this.scene, this.camera)
     requestAnimationFrame(() => {
       this.animate()
@@ -72,7 +76,8 @@ export default class Game implements IOptions {
       100
     )
     this.camera.position.set(...this.cameraData.cameraPos)
-    this.camera.lookAt(this.cameraData.cameraLookAt)
+    // this.camera.lookAt(this.cameraData.cameraLookAt)
+    // console.log(this.camera)
     this.scene.add(this.camera)
   }
 
@@ -89,14 +94,17 @@ export default class Game implements IOptions {
   }
 
   private addAxes () {
-    const axes = new THREE.AxesHelper(150)
+    const axes = new THREE.AxesHelper(300)
     this.scene.add(axes)
   }
 
   private addControls () {
     this.controls = new OrbitControls(this.camera, this.renderer.domElement)
-    this.controls.target = new THREE.Vector3(0, -4, 0)
+    this.controls.target = new THREE.Vector3(0, 8, 0)
+
     this.controls.minAzimuthAngle = 0
     this.controls.maxAzimuthAngle = 0
+    // this.controls.minPolarAngle = Math.PI / 2
+    // this.controls.maxPolarAngle = Math.PI / 2
   }
 }
