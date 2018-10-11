@@ -21,19 +21,20 @@ export default class Game implements IOptions {
   public renderer: any
   public controls: any
   public light: any
+  public group: any
+  public prevRotateDelta: number
   constructor () {
     this.size = {
       height: window.innerHeight,
       width: window.innerWidth
     }
-    // console.log(this.size)
+
     this.cameraData = {
-      // adjustData: 0,
-      // adjustPer: 0.1,
       cameraLookAt: new THREE.Vector3(0, 0, 0),
       cameraPos: [0, 10, 16]
     }
 
+    this.prevRotateDelta = 0
     this.init()
   }
 
@@ -44,14 +45,25 @@ export default class Game implements IOptions {
     this.addLight()
     this.addAxes()
     this.addControls()
-    this.animate()
+
+    this.group = new THREE.Group()
     sphere.renderSphere.call(this)
     image.renderImage.call(this)
+    this.scene.add(this.group)
+
+    this.animate()
     this.renderer.render(this.scene, this.camera)
   }
 
   private animate () {
     this.controls.update()
+    // this.a = this.a + this.controls.rotateDelta.y / 100
+    // console.log(this.a, this.controls.rotateDelta.y)
+    if (this.controls.rotateDelta.y !== this.prevRotateDelta) {
+      this.group.rotation.x +=
+        this.controls.rotateDelta.y / 100
+      this.prevRotateDelta = this.controls.rotateDelta.y
+    }
     // console.log(this.controls.rotateDelta)
     // console.log(this.camera.position, this.controls.target)
     // this.light.position.set(
@@ -104,7 +116,7 @@ export default class Game implements IOptions {
 
     this.controls.minAzimuthAngle = 0
     this.controls.maxAzimuthAngle = 0
-    // this.controls.minPolarAngle = Math.PI / 2
-    // this.controls.maxPolarAngle = Math.PI / 2
+    this.controls.minPolarAngle = Math.PI / 2
+    this.controls.maxPolarAngle = Math.PI / 2
   }
 }

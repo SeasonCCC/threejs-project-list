@@ -14,9 +14,7 @@ const image: any = {
         // const matarial = new THREE.MeshLambertMaterial({ color: 'red' })
         const cube = new THREE.Mesh(geometry, material)
         cube.position.set(0, 8, 0)
-        console.log(cube)
-        cube.rotation.x = Math.PI / 2
-        this.scene.add(cube)
+        this.group.add(cube)
       },
       (err) => {
         if (err) {

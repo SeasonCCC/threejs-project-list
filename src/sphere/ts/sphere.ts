@@ -8,7 +8,7 @@ const sphere: any = {
     )
     sphereMesh.position.set(0, 0, 0)
     // sphereMesh.castShadow = sphereMesh.receiveShadow = true
-    this.scene.add(sphereMesh)
+    this.group.add(sphereMesh)
   }
 }
 
